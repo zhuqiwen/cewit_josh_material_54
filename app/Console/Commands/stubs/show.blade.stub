@@ -1,0 +1,41 @@
+@extends('admin/layouts/default')
+
+{{-- Page title --}}
+@section('title')
+%%crudNameSingular%%
+@parent
+@stop
+
+@section('content')
+<section class="content-header">
+    <h1>%%crudNamePluralCap%%</h1>
+    <ol class="breadcrumb">
+        <li>
+            <a href="{{ route('admin.dashboard') }}"> <i class="material-icons text-primary leftsize">home</i>
+                Dashboard
+            </a>
+        </li>
+        <li>%%crudNamePlural%%</li>
+        <li class="active">%%crudNamePlural%%</li>
+    </ol>
+</section>
+
+<section class="content paddingleft_right15">
+    <div class="row">
+        <div class="panel panel-primary ">
+            <div class="panel-heading clearfix">
+                <h4 class="panel-title"> <i class="material-icons">formar_list_bulleted</i>
+                    %%crudNameSingular%% {{ $%%crudNameSingular%%->id }}'s details
+                </h4>
+            </div>
+            <br />
+            <div class="panel-body">
+                <table class="table">
+                    <tr><td>id</td><td>{{ $%%crudNameSingular%%->id }}</td></tr>
+                     %%showContents%%
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@stop
